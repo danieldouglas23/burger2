@@ -1,0 +1,38 @@
+<img src="/assets/img/burger.jpg" alt="Burger" id="burger-image">
+<h2>Eat-Da-Burger!</h2>
+
+<div id="burgers-container">
+    <div id="undevoured-container">
+    <h3>Burgers just asking to be Devoured!</h3>
+
+    <ul id="undevoured-list">
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+    </ul>
+    </div>
+
+    <div id"devoured-container">
+    <h3>Burgers you've Devoured!</h3>
+
+    <ul id="devoured-list">
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+    </ul>
+    </div>
+</div>
+
+<form class="create-form" id="input-form">
+
+    <div class="form-group">
+        <textarea id="burger-input" name="name" rows="2" cols="40" form="input-form"></textarea>
+    </div>
+
+    <button type="submit" id="submit-button">Submit</button>
+    <p>Enter a burger you want to eat, then click Submit!</p>
+</form>
